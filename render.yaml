@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tarzan-screen-cast-signaling
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: ROOM_TTL_SECONDS
+        value: 3600
+      - key: MAX_PEERS_PER_ROOM
+        value: 2
